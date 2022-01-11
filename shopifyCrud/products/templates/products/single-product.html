@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container">
+	
+		<h3><p class="text-center">Product Name:</p></h3>
+	
+		
+		<h5 class="text-center">{{product.prod_name}} </h5>
+		<br><hr>
+
+		<h3 class="text-center"> Description </h3><br>
+	
+		<br>
+		<p class="text-justify">{{product.prod_description|linebreaks}}</p>
+	
+		<br><hr>
+		<h3 class="text-center">Tags</h3>
+		<br>
+		<ul class="list-group">
+		{% for tag in product.prod_tags.all %}
+		
+  			<li class="list-group-item"><p class="text-center"> {{tag}} </p></li>
+  
+		
+		{% endfor %}
+		</ul>
+		<br>
+	
+		<h3 class="text-center"> Expires On </h3>
+		<p class="font-weight-bold text-center">{{product.prod_expires}}</p>
+
+		<center>
+		<button class="btn btn-primary"><a class="text-white" href="{% url 'update-product' product.id %}">Edit</a> </button>
+		<button class="btn btn-danger"><a class ="text-white" href="{% url 'delete-product' product.id %}">Delete</a></button>
+	</center>
+
+</div>
+
+{% endblock %}
+

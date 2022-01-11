@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for product in products %}
+    <tr>
+      <td>{{product.prod_name}}</td>
+      <td>{{product.prod_amount }}</td>
+      <td>{{product.prod_expires}}</td>
+      <td><button class="btn btn-success"><a href="{% url 'single-product' product.id %}" class="text-white">Detailed-View</a></button>
+      <button class="btn btn-primary"><a href="{% url 'update-product' product.id %}" class="text-white">Edit</a></button>
+
+      <button class="btn btn-danger"><a class="text-white"href="{% url 'delete-product' product.id %}">Delete</a></button></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}
