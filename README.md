@@ -1,5 +1,7 @@
 # Inventory-Management
 
+## This Project was built as a part of a job application at shopify. It has not been maintained for a very long time, so please contact me if you run into error when running this project.
+
 To run this Django project in you local machine. Follow the steps described below.
 
 1) Download the repository
